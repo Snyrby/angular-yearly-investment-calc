@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { UserInputComponent } from "./components/ui/user-input/user-input.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HeaderComponent, UserInputComponent],
+  styleUrl: './app.component.css',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'yearly-investment-calc';
-}
+export class AppComponent {}
