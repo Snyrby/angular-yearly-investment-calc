@@ -4,3 +4,12 @@ export type Investment = {
   annualInvestment: number;
   duration: number;
 };
+
+export type InvestmentData = {
+  year: number;
+  interest: number;
+  valueEndOfYear: number;
+  annualInvestment: number;
+  totalInterest: number;
+  totalAmountInvested: number;
+}[];

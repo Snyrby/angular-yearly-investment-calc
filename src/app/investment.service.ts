@@ -2,19 +2,12 @@
 // e.g., integrate it into a service or component
 // You may need to tweak it, depending on where and how you use it
 
-import { Injectable } from '@angular/core';
-import { Investment } from './investment.model';
+import { Injectable, signal } from '@angular/core';
+import { Investment, InvestmentData } from './investment.model';
 
 @Injectable({ providedIn: 'root' })
 export class InvestmentService {
-  resultData?: {
-    year: number;
-    interest: number;
-    valueEndOfYear: number;
-    annualInvestment: number;
-    totalInterest: number;
-    totalAmountInvested: number;
-  }[];
+  resultData = signal<InvestmentData | undefined>(undefined);
 
   calculateInvestmentResults({
     initialInvestment,
@@ -41,6 +34,6 @@ export class InvestmentService {
       });
     }
 
-    this.resultData = annualData;
+    this.resultData.set(annualData);
   }
 }
